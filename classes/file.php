@@ -4,26 +4,27 @@ namespace upload;
 
 class File {
 	
-	private $file;
+	private static $file = false;
 	
 	// load files data from http post
 	public static function init ($id) {
 		
 		if (isset($_FILES[$id])) {
-			$self::file = $_FILES[$id];
+			self::$file = $_FILES[$id];
 		}
 		else {
-			$self::file = false;
+			self::$file = false;
 		}
 	}
 
 	// check for file
 	public static function has_file () {
-		if ($self::file) {
+
+		if (self::$file) {
 			return true;
 		}
 		else {
-			return true;
+			return false;
 		}
 	}
 	
@@ -31,8 +32,8 @@ class File {
 	// name, type, size, tmp_name, error
 	public static function __call ($name, $atte) {
 		
-		if ($self::has_file && isser($self::file [$name])) {
-			return $self::file [$name];
+		if (self::has_file && isser(self::$file [$name])) {
+			return self::$file [$name];
 		}
 		
 		return false;

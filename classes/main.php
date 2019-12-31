@@ -25,10 +25,13 @@ class Main {
 	// render view
 	// only if memberaccess active and user is logged
 	public static function render ($path = false, $attributes = false) {
-		
+
+		$o = "";
+
+//ToDo check for user has group
 		// has edit access
-		if ($self::edit) {
-			$o .= view::upload($self::path);
+		if (self::$edit) {
+			$o .= view::upload($attributes);
 		}
 		
 		return $o;
@@ -36,13 +39,17 @@ class Main {
 	
 	// set edit state
 	public static function edit ($status) {
-		$self::edit = $status;
+
+		self::$edit = $status;
 	}
 	
 	// check for uploaded file
 	public static function action () {
-		debug("File uploaded");
-		debug(Session::debug());
+
+		if (File::has_file()) {
+
+			debug("File uploaded");
+		}
 		
 		
 	}

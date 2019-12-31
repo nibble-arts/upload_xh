@@ -9,11 +9,18 @@ class View {
 	
 
 	// display upload block
-	public static function upload ($text = "") {
+	public static function upload ($attr = "") {
 		
+		(isset($attr["title"])) ? $title = $attr["title"] : $title = "";
+		(isset($attr["text"])) ? $text = $attr["text"] : $text = "";
+
 		$o = "";
 		
 		$o .= '<div class="upload_block">';
+
+			$o .= '<div class="upload_title">' . Text::get($title) . '</div>';
+
+			$o .= '<div class="upload_text">' . Text::get($text) . '</div>';
 		
 			$o .= '<form method="post" enctype="multipart/form-data" action="';
 				$o .= '';
@@ -21,19 +28,19 @@ class View {
 
 			$o .= Text::file_select();
 
-			$o .= '<input name="upload_file" type="file" size="50"';
+			$o .= ' <input name="upload_file" type="file" size="50"';
 //ToDo insert mime type
 				//$o .= ' accept="';
-				//$o .= 'text/*';
-				
-				$o .= '<input type="hidden" name="MAX_FILE_SIZE" value="2000000">';
+				//$o .= 'text/*';				
 			$o .= '">';
 
-			$o .= Text::get($text);
 			
+			$o .= '<input type="hidden" name="MAX_FILE_SIZE" value="2000000">';
+
 			$o .= '<input type="submit" name="upload_submit" value="';
-			$o .= Text::file_submit() . '">';
+			$o .= Text::file_upload() . '">';
 		
+		$o .= '</div>';
 		return $o;
 	}
 
