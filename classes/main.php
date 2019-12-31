@@ -43,6 +43,8 @@ class Main {
 	
 	// check for uploaded file
 	public static function action () {
+		debug("File uploaded");
+		debug(Session::debug());
 	}
 }
 
