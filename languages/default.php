@@ -1,3 +1,4 @@
 <?php
 
-$plugin_tx['Upload']['Upload']="Hochladen";
+$plugin_tx['Upload']['file_select']="Datei hochladen";
+$plugin_tx['Upload']['file_upload']="Datei wählen";

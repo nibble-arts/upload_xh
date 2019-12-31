@@ -13,14 +13,15 @@ class View {
 		
 		$o .= '<div class="upload_block">';
 		
-			$o = text::select_file();
+			$o = text::file_select();
 			$o .= '<input name="upload_file" type="file" size="50" accept="';
-
+//ToDo insert mime type
 				$o .= '';
 			$o .= 'text/*">';
 			$o .= $text;
 			
-		$o .= '</div>;
+			$o .= '<input type="submit" name="upload_submit" value="';
+			$o .= text::file_submit() . '">';
 		
 		return $o;
 	}
