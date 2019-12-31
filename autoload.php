@@ -11,5 +11,6 @@ function autoload ($namespace) {
 			include_once $path; 
 		}
 	});
+}
 	
 ?>
