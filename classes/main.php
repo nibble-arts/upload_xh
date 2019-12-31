@@ -8,9 +8,6 @@ namespace upload;
 class Main {
 	
 	private static $path = false;
-	
-	
-	// edit state
 	private static $edit = false;
 	
 	// initial plugin class
@@ -20,6 +17,7 @@ class Main {
 		Session::load();
 		Config::init($config["upload"]);
 		Text::init($text["upload"]);
+		File::init("upload_file");
 		
 		self::action();
 	}
@@ -45,6 +43,8 @@ class Main {
 	public static function action () {
 		debug("File uploaded");
 		debug(Session::debug());
+		
+		
 	}
 }
 

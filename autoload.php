@@ -8,6 +8,8 @@ function autoload ($namespace) {
 		if ($path && strpos($path, $namespace . "\\") !== false) {
 			
 			$path = "classes/" . str_replace($namespace . "\\", "", strtolower($path)) . ".php";
+
+debug($path);
 			include_once $path; 
 		}
 	});

@@ -15,7 +15,7 @@ class View {
 		
 		$o .= '<div class="upload_block">';
 		
-			$o .= '<form method="post" action="';
+			$o .= '<form method="post" enctype="multipart/form-data" action="';
 				$o .= '';
 			$o .= '">';
 
@@ -25,6 +25,8 @@ class View {
 //ToDo insert mime type
 				//$o .= ' accept="';
 				//$o .= 'text/*';
+				
+				$o .= '<input type="hidden" name="MAX_FILE_SIZE" value="2000000">';
 			$o .= '">';
 
 			$o .= Text::get($text);
