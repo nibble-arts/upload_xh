@@ -13,7 +13,11 @@ class View {
 		
 		$o .= '<div class="upload_block">';
 		
-			$o = 'Upload File ';
+			$o = text::select_file();
+			$o .= '<input name="upload_file" type="file" size="50" accept="';
+
+				$o .= '';
+			$o .= 'text/*">';
 			$o .= $text;
 			
 		$o .= '</div>;
