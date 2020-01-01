@@ -20,7 +20,7 @@ class File {
 	// check for file
 	public static function has_file () {
 
-		if (self::$file) {
+		if (!self::$file["error"] && self::$file["size"] > 0) {
 			return true;
 		}
 		else {
@@ -28,11 +28,20 @@ class File {
 		}
 	}
 	
+
+	// copy file to destination
+	public static function copy ($target) {
+
+debug("copy tmp file ".self::$file["tmp_name"]." to ".$target."/".self::$file["name"]);
+
+	}
+
+
 	// get file property
 	// name, type, size, tmp_name, error
-	public static function __call ($name, $atte) {
+	public static function __callStatic ($name, $atte) {
 		
-		if (self::has_file && isser(self::$file [$name])) {
+		if (self::has_file() && isset(self::$file [$name])) {
 			return self::$file [$name];
 		}
 		

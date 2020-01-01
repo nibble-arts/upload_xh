@@ -7,7 +7,6 @@ namespace upload;
 
 class Main {
 	
-	private static $path = false;
 	private static $edit = false;
 	
 	// initial plugin class
@@ -24,14 +23,14 @@ class Main {
 	
 	// render view
 	// only if memberaccess active and user is logged
-	public static function render ($path = false, $attributes = false) {
+	public static function render ($path, $attributes = false) {
 
 		$o = "";
 
 //ToDo check for user has group
 		// has edit access
 		if (self::$edit) {
-			$o .= view::upload($attributes);
+			$o .= view::upload(Session::param("upload_path"), $attributes);
 		}
 		
 		return $o;
@@ -46,9 +45,21 @@ class Main {
 	// check for uploaded file
 	public static function action () {
 
-		if (File::has_file()) {
+		if (!File::error()) {
 
-			debug("File uploaded");
+			// check file size
+			if(File::size() > Config::file_max_size()) {
+
+
+debug("file bigger than ".Config::file_max_size()." Bytes");
+
+
+			}
+
+			// copy file to destinition
+			else {
+				File::copy(Session::param("upload_path"));
+			}
 		}
 		
 		

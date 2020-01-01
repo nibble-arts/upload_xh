@@ -9,8 +9,8 @@ class View {
 	
 
 	// display upload block
-	public static function upload ($attr = "") {
-		
+	public static function upload ($path, $attr = "") {
+
 		(isset($attr["title"])) ? $title = $attr["title"] : $title = "";
 		(isset($attr["text"])) ? $text = $attr["text"] : $text = "";
 
@@ -36,6 +36,8 @@ class View {
 
 			
 			$o .= '<input type="hidden" name="MAX_FILE_SIZE" value="2000000">';
+
+			$o .= '<input type="hidden" name="upload_path" value="' . $path . '">';
 
 			$o .= '<input type="submit" name="upload_submit" value="';
 			$o .= Text::file_upload() . '">';

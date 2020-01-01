@@ -51,7 +51,7 @@ function Upload ($path = false, $attributes = false) {
 		}
 		
 		// execute
-		return upload\Main:: render($path, $attributes);
+		return upload\Main::render($path, $attributes);
 	}
 
 	else {
