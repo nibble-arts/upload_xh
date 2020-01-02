@@ -1,7 +1,7 @@
 .upload_block {
 	border: 1px solid grey;
 	padding: 10px;
-	margin-bottom: 10px;
+	margin: 10px 0 10px 0;
 }
 
 .upload_title {
@@ -10,5 +10,10 @@
 }
 
 .upload_text {
+	margin-bottom: 10px;
+}
+
+.upload_size {
+	font-size: 90%;
 	margin-bottom: 10px;
 }

@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Upload CMSimple-XH :: Help</title>
+  <meta encoding="UTF-8">
+
+  <style>
+html, body {
+margin: 0;
+padding: 0;
+}
+body {
+font-family: verdana, arial, sans-serif;
+background-color: #e2e2e2;
+text-align: center;
+font-size: 0.9em;
+line-height: 1.3;
+}
+.additional{
+font-size: 90%;
+color: #666;
+line-height: 1.1;
+}
+p.code {font-family: Courier New; border: 1px solid #999; background: #eed; padding: 8px 12px;}
+  </style>
+  <script type="text/javascript" src="sh/scripts/shCore.js"></script>
+  <script type="text/javascript" src="sh/scripts/shBrushPhp.js"></script>
+  <link type="text/css" rel="stylesheet" href="sh/styles/shCore.css">
+
+  <link type="text/css" rel="stylesheet" href="sh/styles/shThemeDefault.css">
+
+  <script type="text/javascript">
+SyntaxHighlighter.config.clipboardSwf = 'sh/scripts/clipboard.swf';
+SyntaxHighlighter.all();
+  </script>
+</head>
+
+
+<body>
+
+<div style="border: 1px solid rgb(187, 187, 187); margin: 0px auto auto; padding: 0pt 3em; text-align: left; width: 780px; background-color: rgb(255, 255, 255);">
+<h1>Upload for CMSimple-XH<br>
+
+</h1>
+
+<p>A Plugin to offer a file upload on pages.</p>
+<p class="additional">Version 1.0- 2020-01-02<br>
+
+<span class="additional">
+&copy; 2020 Thomas Winkler, </span><a class="additional" target="_blank" href="https://winkler.iggmp.net/?CMSimple-XH">http://www.nibble-arts.org</a><span class="additional">.<br>
+
+</span></p>
+
+<br>
+
+<br>
+
+<h2>Plugin-Aufruf</h2>
+
+<pre>{{{upload("path", ["attr"=>"value",...])}}}</pre>
+
+<p>The plugin can be added at any place in the pages. The path parameter defines the directory for storing the uploaded files. Additional attributes can be defined using an associative array.</p>
+
+<h3>Attribute</h3>
+<ul>
+  <li>group</li>
+  <li>accept</li>
+  <li>title</li>
+  <li>text</li>
+</ul>
+
+<h4>title</h4>
+<p>A short title of the upload form. If upload_title is used as text, a multilingual standard title is used. The standard text can be edited in the plugin admin setup.</p>
+
+<h4>text</h4>
+<p>A short description text of the upload form. If upload_text is used as text, a multilingual standard description is used. The standard text can be edited in the plugin admin setup.</p>
+
+<h4>group</h4>
+<p>The group name is used the upload form is only displayed, when the user has the group rights in the memberaccess-plugin.</p>
+
+<h4>accept</h4>
+<p>The accept parameter can filter the files in the file selector box. It can contain the following values:</p>
+
+<ul>
+  <li>.extension: A file extension (with leading dot)</li>
+  <li>image/*: All image files</li>
+  <li>audio/*: All audio files</li>
+  <li>video/*: All video files</li>
+</ul>
+
+
+</span>
+<pre style="font-weight: bold; line-height: 1.2em; font-size: 90%; color: rgb(102, 102, 102);"> THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED <br> IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY OF ANY KIND,<br> EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS<br> FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD<br> THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.<br> </pre>
+
+
+<div>
+</div>
+
+</body>
+</html>

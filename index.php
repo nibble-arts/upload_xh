@@ -16,7 +16,7 @@ upload\Main::init($plugin_cf, $plugin_tx);
 //		group: access group
 //		title: upload dialog title
 //		text: upload description text
-//		
+//		accept: selector box filter
 function Upload ($path = false, $attributes = false) {
 
 	if ($path) {
@@ -25,31 +25,20 @@ function Upload ($path = false, $attributes = false) {
 
 		// memberaccess installed
 		// and logged
-		// and user is in upload access group
-		if (class_exists("ma\Access") && ma\Access::user() && ma\Groups::user_is_in_group(ma\Access::user()->username(), news\Config::access_admin_group())) {
+		if (class_exists("ma\Access") &&
+			ma\Access::user()) {
 
-			// collect access classes
-			// add admin
-			$groups[] = "admin";
-
-			// group set
+			// user is in upload access group
 			if (isset($attributes["group"])) {
-
 				$groups[] = $attributes["group"];
+			}
 
-				// access with correct group
-				if (\ma\Groups::user_is_in_group(\ma\Access::user()->username(), $groups)) {
-
-					upload\Main::edit(true);
-				}
-
-				// show when no group defined
-				else {
-					upload\Main::edit(true);
-				}
+			// access with correct group
+			if (\ma\Groups::user_is_in_group(\ma\Access::user()->username(), $groups) || \ma\Access::admin()) {
+				upload\Main::edit(true);
 			}
 		}
-		
+
 		// execute
 		return upload\Main::render($path, $attributes);
 	}
