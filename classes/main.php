@@ -52,10 +52,11 @@ class Main {
 		}
 
 
+		// Session::session("xh_csrf_token") == Session::param("token") && 
+
+		// check session token
 		// file exists
 		if (File::has_file()) {
-
-// debug($attr);
 
 			// check file size
 			if(File::size() > Config::file_max_size()) {
@@ -67,8 +68,6 @@ class Main {
 				File::copy(Session::param("upload_path"));
 			}
 		}
-		
-		
 	}
 }
 

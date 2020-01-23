@@ -49,6 +49,7 @@ class View {
 				$o .= '">';
 
 				// hidden parameters				
+				// $o .= '<input type="hidden" name="token" value="' . Session::session("PHPSESSID") . '">';
 				$o .= '<input type="hidden" name="MAX_FILE_SIZE" value="2000000">';
 				$o .= '<input type="hidden" name="upload_path" value="' . $path . '">';
 				$o .= '<input type="submit" name="upload_submit" value="' . Text::file_upload() . '">';
