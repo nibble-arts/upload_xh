@@ -25,18 +25,12 @@ function Upload ($path = false, $attributes = false) {
 
 		// memberaccess installed
 		// and logged
-		if (class_exists("ma\Access") &&
-			ma\Access::user()) {
+		// and access with correct group
+		if (isset($attributes["group"]) && class_exists("ma\Access") && ma\Access::has_rights($attributes["group"])) {
 
-			// user is in upload access group
-			if (isset($attributes["group"])) {
-				$groups[] = $attributes["group"];
-			}
+			$groups[] = $attributes["group"];
 
-			// access with correct group
-			if (\ma\Groups::user_is_in_group(\ma\Access::user()->username(), $groups) || \ma\Access::admin()) {
-				upload\Main::edit(true);
-			}
+			upload\Main::edit(true);
 		}
 
 		// execute
